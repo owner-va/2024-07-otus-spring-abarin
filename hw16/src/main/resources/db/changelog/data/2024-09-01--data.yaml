@@ -1,0 +1,157 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-authors
+      author: owner_va
+      changes:
+        - insert:
+            tableName: authors
+            columns:
+              - column:
+                  name: full_name
+                  value: 'Author_1'
+        - insert:
+            tableName: authors
+            columns:
+              - column:
+                  name: full_name
+                  value: 'Author_2'
+        - insert:
+            tableName: authors
+            columns:
+              - column:
+                  name: full_name
+                  value: 'Author_3'
+
+  - changeSet:
+      id: insert-genres
+      author: owner_va
+      changes:
+        - insert:
+            tableName: genres
+            columns:
+              - column:
+                  name: name
+                  value: 'Genre_1'
+        - insert:
+            tableName: genres
+            columns:
+              - column:
+                  name: name
+                  value: 'Genre_2'
+        - insert:
+            tableName: genres
+            columns:
+              - column:
+                  name: name
+                  value: 'Genre_3'
+        - insert:
+            tableName: genres
+            columns:
+              - column:
+                  name: name
+                  value: 'Genre_4'
+        - insert:
+            tableName: genres
+            columns:
+              - column:
+                  name: name
+                  value: 'Genre_5'
+        - insert:
+            tableName: genres
+            columns:
+              - column:
+                  name: name
+                  value: 'Genre_6'
+
+
+  - changeSet:
+      id: insert-books
+      author: owner_va
+      changes:
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: title
+                  value: 'BookTitle_1'
+              - column:
+                  name: author_id
+                  valueNumeric: 1
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: title
+                  value: 'BookTitle_2'
+              - column:
+                  name: author_id
+                  valueNumeric: 2
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: title
+                  value: 'BookTitle_3'
+              - column:
+                  name: author_id
+                  valueNumeric: 3
+
+  - changeSet:
+      id: insert-books-genres
+      author: owner_va
+      changes:
+        - insert:
+            tableName: books_genres
+            columns:
+              - column:
+                  name: book_id
+                  valueNumeric: 1
+              - column:
+                  name: genre_id
+                  valueNumeric: 1
+        - insert:
+            tableName: books_genres
+            columns:
+              - column:
+                  name: book_id
+                  valueNumeric: 1
+              - column:
+                  name: genre_id
+                  valueNumeric: 2
+        - insert:
+            tableName: books_genres
+            columns:
+              - column:
+                  name: book_id
+                  valueNumeric: 2
+              - column:
+                  name: genre_id
+                  valueNumeric: 3
+        - insert:
+            tableName: books_genres
+            columns:
+              - column:
+                  name: book_id
+                  valueNumeric: 2
+              - column:
+                  name: genre_id
+                  valueNumeric: 4
+        - insert:
+            tableName: books_genres
+            columns:
+              - column:
+                  name: book_id
+                  valueNumeric: 3
+              - column:
+                  name: genre_id
+                  valueNumeric: 5
+        - insert:
+            tableName: books_genres
+            columns:
+              - column:
+                  name: book_id
+                  valueNumeric: 3
+              - column:
+                  name: genre_id
+                  valueNumeric: 6
+

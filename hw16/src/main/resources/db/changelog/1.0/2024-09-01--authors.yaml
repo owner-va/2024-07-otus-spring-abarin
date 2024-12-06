@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-09-01-authors
+      author: owner_va
+      changes:
+        - createTable:
+            tableName: authors
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    autoIncrement: true
+              - column:
+                  name: full_name
+                  type: varchar(255)
