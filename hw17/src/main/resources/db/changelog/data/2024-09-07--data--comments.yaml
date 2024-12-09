@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-09-07-insert-comments
+      author: owner_va
+      changes:
+        - insert:
+            tableName: comments
+            columns:
+              - column:
+                  name: text
+                  value: "Great book, really enjoyed it!"
+              - column:
+                  name: book_id
+                  valueNumeric: 1
+        - insert:
+            tableName: comments
+            columns:
+              - column:
+                  name: text
+                  value: "Very informative and well-written."
+              - column:
+                  name: book_id
+                  valueNumeric: 2
+        - insert:
+            tableName: comments
+            columns:
+              - column:
+                  name: text
+                  value: "Not my cup of tea."
+              - column:
+                  name: book_id
+                  valueNumeric: 3
+        - insert:
+            tableName: comments
+            columns:
+              - column:
+                  name: text
+                  value: "A masterpiece that everyone should read."
+              - column:
+                  name: book_id
+                  valueNumeric: 1

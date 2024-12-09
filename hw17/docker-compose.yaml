@@ -1,0 +1,35 @@
+services:
+  postgresql:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DATABASE:-db}
+    ports:
+      - '5433:5432'
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    environment:
+      SPRING_DATASOURCE_URL: ${POSTGRESQL_URL:-jdbc:postgresql://postgresql:5432/db}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER:-postgres}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      JAVA_OPTS: "-XX:InitialRAMPercentage=50.0 -XX:MaxRAMPercentage=50.0"
+    depends_on: # знаю, что депрейейтед, не хочу писать healthcheck) Прошу понять и простить
+      - postgresql
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      REACT_APP_API_URL: http://backend:8080
+    depends_on: # знаю, что депрейейтед, не хочу писать healthcheck) Прошу понять и простить
+      - backend
