@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-09-01-books_genres
+      author: owner_va
+      preConditions:
+        - tableExists:
+            tableName: genres
+      changes:
+        - createTable:
+            tableName: books_genres
+            columns:
+              - column:
+                  name: book_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_books_genres_books
+                    references: books(id)
+                    deleteCascade: true
+              - column:
+                  name: genre_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_books_genres_genres
+                    references: genres(id)
+                    deleteCascade: true
+              - constraints:
+                  primaryKey:
+                    - book_id
+                    - genre_id
+                  primaryKeyName: pk_books_genres

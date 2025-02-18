@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-09-01-books
+      author: owner_va
+      preConditions:
+        - tableExists:
+            tableName: authors
+      changes:
+        - createTable:
+            tableName: books
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    autoIncrement: true
+              - column:
+                  name: title
+                  type: varchar(255)
+              - column:
+                  name: author_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_books_authors
+                    references: authors(id)
+                    deleteCascade: true

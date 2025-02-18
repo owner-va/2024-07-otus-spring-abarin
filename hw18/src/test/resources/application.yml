@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:maindb
+  h2:
+    console:
+      enabled: false
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master-test.yaml
+  sql:
+    init:
+      mode: never
